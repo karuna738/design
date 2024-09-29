@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-layout',
@@ -10,8 +11,10 @@ import { Router, RouterOutlet } from '@angular/router';
 })
 export class LayoutComponent {
   router = inject(Router);
+  constructor(private authService: AuthService) {}
   
   onLogOff(){
-    this.router.navigateByUrl('login');
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }
