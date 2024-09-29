@@ -1,20 +1,26 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" routerLink="dashboard"> $Design/> </a>
+      <a class="navbar-brand" routerLink="dashboard">👓︎𝓓𝓮𝓼𝓲𝓰𝓷📭︎</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mynavbar">
         <ul class="navbar-nav me-auto">
-          <li class="nav-item" >
-            <a class="nav-link active" routerLink="dashboard">Dashboard</a>
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">
+            <a class="nav-link" [routerLink]="['dashboard']">𝓓𝓪𝓼𝓻𝓫𝓸𝓪𝓻𝓭</a>
           </li>
-          <!-- <li class="nav-item" >
-            <a class="nav-link" routerLink="ticket-list">Tickets</a>
-          </li> -->
+          <li class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              𝓗𝓽𝓶𝓵&𝓒𝓼𝓼
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <!-- Add your dropdown items here -->
+              <a class="dropdown-item" routerLink="html-css">𝓣𝓪𝓼𝓚 1</a>
+            </div>
+          </li>
         </ul>
         <form class="d-flex"> 
-          <button class="btn btn-primary" type="button" (click)="onLogOff()">LogOff</button>
+          <button class="btn btn-primary" aria-label="Log out" type="button" (click)="onLogOff()">𝓛𝓸𝓰𝓞𝓾𝓽</button>
         </form>
       </div>
     </div>
