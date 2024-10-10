@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/ngx-toastr/toastr.css';
+
+
+/* Custom Toastr styles */
+#toast-container .toast {
+    background-color: #2e3b4e; /* Dark background */
+    color: #ffffff; /* White text */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Drop shadow */
+    padding: 15px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+  }
+  
+  #toast-container .toast-success {
+    background-color: #28a745; /* Green for success */
+  }
+  
+  #toast-container .toast-error {
+    background-color: #dc3545; /* Red for errors */
+  }
+  
+  #toast-container .toast-info {
+    background-color: #17a2b8; /* Blue for info */
+  }
+  
+  #toast-container .toast-warning {
+    background-color: #ffc107; /* Yellow for warnings */
+  }
+  
+  #toast-container .toast-progress {
+    background-color: rgba(255, 255, 255, 0.3); /* Light progress bar */
+  }
+  
+  #toast-container .toast-close-button {
+    color: #ffffff; /* White close button */
+    opacity: 0.8;
+  }
+  
+  #toast-container .toast-close-button:hover {
+    opacity: 1;
+  }
+  
