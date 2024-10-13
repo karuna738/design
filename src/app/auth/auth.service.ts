@@ -15,9 +15,8 @@ export class AuthService {
   login(username: string, password: string): boolean {
     const user = this.users.find(u => u.username === username && u.password === password);
     if (user) {
-      localStorage.setItem('token', 'logged-in');
+      sessionStorage.setItem('token', 'logged-in');
       this.toastr.success('Successfully!', 'Login');
-
       return true;
     }
     this.toastr.warning(' is Worng', 'User Name or Possword');
@@ -25,12 +24,12 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
     this.toastr.success('Successfully!', 'Logout');
   }
 
   isAuthenticated(): boolean {
     // this.toastr.error('Error!', 'Authentication');
-    return !!localStorage.getItem('token');
+    return !!sessionStorage.getItem('token');
   }
 }

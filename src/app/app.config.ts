@@ -11,13 +11,13 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimations(),
     provideToastr({
-      timeOut: 10000, // Set time for the notification to disappear
-      positionClass: 'toast-top-right', // Positioning
-      preventDuplicates: true, // Prevent duplicate toasts
-      closeButton: true, // Add a close button
-      progressBar: true, // Show progress bar
-      tapToDismiss: false, // Disable dismiss on click
-      extendedTimeOut: 2000, // Extended timeout if the user hovers over the toast
+      timeOut: 1000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: false,  // Set to false for multiple toasts
+      closeButton: true,
+      progressBar: true,
+      tapToDismiss: false,
+      extendedTimeOut: 2000,
     }),
   ],
 };
