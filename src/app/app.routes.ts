@@ -27,6 +27,10 @@ export const routes: Routes = [
         path: 'html-css',
         loadChildren:() => import('./pages/html-css/html-css.routes').then(m  => m.routes_hc)
       },
+      {
+        path: 'forms',
+        loadChildren:() => import('./pages/forms/forms.routes').then(m  => m.routes_f)
+      }
     ],
   },
 ];
