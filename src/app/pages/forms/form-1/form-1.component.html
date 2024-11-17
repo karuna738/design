@@ -1,1 +1,79 @@
-<p>form-1 works!</p>
+<div class="main-container">
+    <div class="form-container">
+        <div class="calculator">
+            <div class="header">
+                <h2>Mortgage Calculator</h2>
+                <a class="clear-all" (click)="reSetData()">Clear All</a>
+            </div>
+            <form id="mortgageForm" [formGroup]="myform" (ngSubmit)="onSubmit()">
+                <label for="amount">Mortgage Amount <sup>*</sup></label>
+                <div class="Amount-container">
+                    <span [ngClass]="{'invalid-con': myform.controls['Amount'].errors && submited }">£</span>
+                    <input type="text" id="amount" formControlName="Amount" 
+                    [ngClass]="{ 'invalue': myform.controls['Amount'].errors && submited }" />
+                    <div class="invalid-con" *ngIf="myform.controls['Amount'].errors && submited" >
+                        <p>This field is required</p>
+                    </div>
+                </div>
+
+                <div class="split-input">
+                    <div>
+                        <label for="term">Mortgage Term <sup>*</sup></label>
+                        <div class="term-container">
+                            <input type="text" id="term" formControlName="Term" 
+                            [ngClass]="{ 'invalue': myform.controls['Term'].errors && submited }"/>
+                            <span [ngClass]="{'invalid-con': myform.controls['Term'].errors && submited }">years</span>
+                        </div>
+                        <div class="invalid-con" *ngIf="myform.controls['Term'].errors && submited" >
+                            <p>This field is required</p>
+                        </div>
+
+                    </div>
+                    <div>
+                        <label for="rate">Interest Rate <sup>*</sup></label>
+                        <div class="rate-container">
+                            <input type="text" id="rate" step="0.01" formControlName="Rate" 
+                            [ngClass]="{ 'invalue': myform.controls['Rate'].errors && submited }"/>
+                            <span [ngClass]="{'invalid-con': myform.controls['Rate'].errors && submited }">%</span>
+                        </div>
+                        <div class="invalid-con" *ngIf="myform.controls['Rate'].errors && submited">
+                            <p>This field is required</p>
+                        </div>
+                    </div>
+                </div>
+
+                <label>Mortgage Type</label>
+                <div class="mortgage-type">
+                    <div class="rep-type">
+                        <input type="radio" id="repayment" value="0" formControlName="Type" >
+                        <label for="repayment">Repayment</label>
+                    </div>
+                    <div class="rep-type">
+                        <input type="radio" id="interestOnly" value="1" formControlName="Type">
+                        <label for="interestOnly">Interest Only</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="calculate-btn"><img src="form_1_img/icon-calculator.svg" width="8%" alt="">
+                    Calculate Repayments</button>
+            </form>
+        </div>
+        <div class="no-results" *ngIf="!submited">
+            <img src="form_1_img/illustration-empty.svg" alt="">
+            <h6>Results shown here</h6>
+            <p>Complete tht form and click "calculate repayments" to see what your monthly repayments would be.</p>
+        </div>
+        <div class="results" *ngIf="submited">
+            <h3 class="res-h3">Your results</h3>
+            <p class="res-p">Your results are shown below based on the information you provide. To adjust the results, edit the form
+                and click "calculte repayments" again.</p>
+            <div class="sup-card">
+                <p>Your monthly repayments</p>
+                <h1>£{{monthlyPayment}}</h1>
+                <hr>
+                <p>Total you'll repay over the term</p>
+                <h3>£{{total}}</h3>
+            </div>
+        </div>
+    </div>
+</div>
