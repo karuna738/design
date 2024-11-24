@@ -26,7 +26,7 @@ export class Form1Component implements OnInit {
       Amount: ['',Validators.required],
       Term  : ['',Validators.required],
       Rate  : ['',Validators.required],
-      Type : ['0']
+      Type : [0]
     });
   }
   calculatePayment(amount: number, interestRate: number, numberOfPayments: number): number {
@@ -53,5 +53,6 @@ export class Form1Component implements OnInit {
     this.monthlyPayment =  0;
     this.total = 0;
     this.myform.reset();
+    this.myform.controls['Type'].setValue(0);
   }
 }

@@ -45,11 +45,11 @@
                 <label>Mortgage Type</label>
                 <div class="mortgage-type">
                     <div class="rep-type">
-                        <input type="radio" id="repayment" value="0" formControlName="Type" >
+                        <input type="radio" id="repayment" [value]="0" formControlName="Type" >
                         <label for="repayment">Repayment</label>
                     </div>
                     <div class="rep-type">
-                        <input type="radio" id="interestOnly" value="1" formControlName="Type">
+                        <input type="radio" id="interestOnly" [value]="1" formControlName="Type">
                         <label for="interestOnly">Interest Only</label>
                     </div>
                 </div>
@@ -58,12 +58,12 @@
                     Calculate Repayments</button>
             </form>
         </div>
-        <div class="no-results" *ngIf="!submited">
+        <div class="no-results" *ngIf="monthlyPayment == 0 && total == 0">
             <img src="form_1_img/illustration-empty.svg" alt="">
             <h6>Results shown here</h6>
             <p>Complete tht form and click "calculate repayments" to see what your monthly repayments would be.</p>
         </div>
-        <div class="results" *ngIf="submited">
+        <div class="results" *ngIf="monthlyPayment > 0 && total > 0">
             <h3 class="res-h3">Your results</h3>
             <p class="res-p">Your results are shown below based on the information you provide. To adjust the results, edit the form
                 and click "calculte repayments" again.</p>

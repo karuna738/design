@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
-import { LayoutComponent } from './pages/layout/layout.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AuthGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
@@ -16,21 +14,7 @@ export const routes: Routes = [
   },
   {
     path: '',
-    component: LayoutComponent,
-    children: [
-      {
-        path: 'dashboard',
-        component: DashboardComponent,
-        canActivate: [AuthGuard]
-      },
-      {
-        path: 'html-css',
-        loadChildren:() => import('./pages/html-css/html-css.routes').then(m  => m.routes_hc)
-      },
-      {
-        path: 'forms',
-        loadChildren:() => import('./pages/forms/forms.routes').then(m  => m.routes_f)
-      }
-    ],
-  },
+    loadChildren:() => import('./pages/pages.routes').then(m  => m.routes_pages),
+    canActivate: [AuthGuard],
+  }
 ];
