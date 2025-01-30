@@ -19,6 +19,7 @@ export const routes_pages: Routes =[
             component: ContactUsComponent,
             canActivate: [AuthGuard]
           },
+        
           {
             path: 'html-css',
             loadChildren:() => import('./html-css/html-css.routes').then(m  => m.routes_hc),
