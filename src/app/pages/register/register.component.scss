@@ -1,0 +1,405 @@
+.main-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    gap: 24px;
+
+    .container-img {
+        height: 100%;
+        position: relative;
+
+        img {
+            height: 100%;
+        }
+
+        .side-menu {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            top: 10%;
+            left: 50px;
+
+            .side-content {
+                display: flex;
+                align-items: center;
+                color: white;
+                width: 100%;
+
+                .steps {
+                    font-weight: 100;
+                }
+
+                .side-number {
+                    border: 1px solid white;
+                    width: 30px;
+                    height: 30px;
+                    display: flex;
+                    border-radius: 50%;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 20px 20px;
+
+                    h5 {
+                        margin: 0;
+                        color: white;
+                    }
+                }
+
+                .side-acitive-number {
+                    background-color: white;
+                    width: 30px;
+                    height: 30px;
+                    display: flex;
+                    border-radius: 50%;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 20px 20px;
+
+                    h5 {
+                        margin: 0;
+                        color: black;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .forms1 {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .container-forms {
+            width: auto;
+            padding: 2%;
+            border: 1px solid black;
+            border-radius: 8px;
+
+            .forms-header {
+                h1 {
+                    color: rgb(5, 5, 88);
+                }
+
+                p {
+                    color: #737575;
+                }
+            }
+
+            .forms-input {
+                width: 100%;
+
+                .input-field {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 20px 0;
+
+                    label {
+                        font-weight: 500;
+                    }
+
+                    input {
+                        width: 100%;
+                        height: 40px;
+                        border: 1px solid rgb(158, 162, 162);
+                        border-radius: 8px;
+                    }
+
+                    input:focus {
+                        outline: none;
+                        border: 2px solid rgb(21, 96, 126);
+                    }
+                }
+
+                .input-btn {
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 15px;
+
+                    .next {
+                        height: 40px;
+                        width: 100%;
+                        border-radius: 8px;
+                        border: 0;
+                        color: white;
+                        font-weight: 500;
+                        background-color: rgb(5, 5, 88);
+                    }
+
+                    .next:hover {
+                        background-color: #0d6efd;
+                    }
+
+                    .back {
+                        height: 40px;
+                        width: 100%;
+                        border-radius: 8px;
+                        border: 0;
+                        color: black;
+                        font-weight: 500;
+                    }
+
+                    .back:hover {
+                        background-color: #c2c4c8;
+                    }
+                }
+            }
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 8px;
+            width: 100%;
+
+            .card1 {
+                border: 1px solid rgb(5, 5, 88);
+                border-radius: 8px;
+                width: 100%;
+                padding: 12px;
+
+                img {
+                    margin-bottom: 20px;
+                    width: 35%;
+                }
+
+                h6,
+                p {
+                    margin: 0;
+                }
+            }
+        }
+
+        .toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f5f8ff;
+            margin: 20px 0px;
+            padding: 10px;
+            gap: 25px;
+            p{
+                margin: 0;
+            }
+            .active{
+                color:  rgb(5, 5, 88);
+                font-weight: 700;
+            }
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 34px; /* Smaller width */
+            height: 18px; /* Smaller height */
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgb(5, 5, 88);
+            transition: .4s;
+            border-radius: 34px; /* Rounded corners */
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 14px; /* Smaller height for the knob */
+            width: 14px; /* Smaller width for the knob */
+            left: 2px; /* Adjusted for centering */
+            bottom: 2px; /* Adjusted for centering */
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%; /* Circular knob */
+        }
+        
+        input:checked + .slider {
+            background-color: rgb(5, 5, 88); /* Color when checked */
+        }
+        
+        input:focus + .slider {
+            box-shadow: 0 0 1px rgb(5, 5, 88); /* Focus effect */
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(16px); /* Move knob to the right */
+        }
+
+        .input-btn {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+
+            .next {
+                height: 40px;
+                width: 100%;
+                border-radius: 8px;
+                border: 0;
+                color: white;
+                font-weight: 500;
+                background-color: rgb(5, 5, 88);
+            }
+
+            .next:hover {
+                background-color: #0d6efd;
+            }
+
+            .back {
+                height: 40px;
+                width: 100%;
+                border-radius: 8px;
+                border: 0;
+                color: black;
+                font-weight: 500;
+            }
+
+            .back:hover {
+                background-color: #c2c4c8;
+            }
+        }
+
+        .checkData{
+            border: 1px solid rgb(5, 5, 88);
+            border-radius: 8px;
+            margin-bottom: 13px;
+            .checkData1{
+                display: grid;
+                padding: 8px;
+                grid-template-columns: 0.2fr 1fr 0.5fr;
+            
+                .check-container{
+                    display: flex;
+                    align-items: center;
+                }
+                .content{
+
+                    h5{
+                        margin: 0;
+                        color: rgb(5, 5, 88)
+                    }
+                    p{
+                        margin: 0;
+                    }
+                }
+                .plan{
+                    display: flex;
+                    align-items: center;
+                    justify-content: end;
+                    p{
+                        margin: 0;
+                        display: flex;
+                        color: blue;
+                    }
+                }
+            }
+
+            .checked-box{
+                background-color: #ebf7ff;
+                border-radius: 8px;            
+            }
+        }
+
+        .final-plan{
+            width: 100%;
+            border-radius: 10px;
+            padding: 8px;
+            background-color: #ebf7ff;
+            .final-card{
+                .final-card1{
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 8px;
+                    align-items: center;
+                    .final-card1-div{
+                        h1{
+                            font-size: large;
+                            margin: 0px;
+                            font-weight: bold;
+                        }
+                        a{
+                            font-size: small;
+                        }
+                    }
+                    .final-card1-plan{
+                        h1{
+                            font-size: large;
+                            font-weight: bold;
+                        }
+                    }
+                }
+                .final-card2{
+                    .final-card2-div{
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 8px;
+                        h2{
+                            font-size: large;
+                            margin: 0px;
+                        }
+                    }
+                }
+         
+            }
+        }
+        .final-plan-div{
+            display: flex;
+            justify-content: space-between;
+            padding: 17px;
+            h2{
+                font-size: large;
+                margin: 0px;
+            }
+            h1{
+                font-size: large;
+                margin: 0px;
+                font-weight: bold;
+            }
+        }
+        .confirming{
+            align-items: center;
+            .cricle{
+                border-radius: 50%;
+                width: 80px;
+                height: 80px;
+                background-color: blue;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .inner-cricle{
+                    border-radius: 50%;
+                    width: 40px;
+                    height: 40px;
+                    background-color: white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    span{
+                        font-family: wingdings;
+                        font-size: 200%;
+                        font-weight: 900;
+                        color: #0d6efd;
+                    }
+                }
+            }
+        }
+     
+        
+    }
+}

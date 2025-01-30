@@ -1,0 +1,221 @@
+<div class="main-container">
+    <!-- side Menu -->
+    <div class="container-img">
+        <img src="register_img/bg-sidebar-desktop.svg" alt="">
+
+        <div class="side-menu">
+            <div class="side-content">
+                @if(sideMenu == 1){
+                <div class="side-acitive-number">
+                    <h5>1</h5>
+                </div>
+                }@else{
+                <div class="side-number">
+                    <h5>1</h5>
+                </div>
+                }
+                <div class="content">
+                    <h5 class="steps">STEP 1</h5>
+                    <h5 class="menu">YOUR INFO</h5>
+                </div>
+            </div>
+
+            <div class="side-content">
+                @if(sideMenu == 2){
+                <div class="side-acitive-number">
+                    <h5>2</h5>
+                </div>
+                }@else{
+                <div class="side-number">
+                    <h5>2</h5>
+                </div>
+                }
+                <div class="content">
+                    <h5 class="steps">STEP 2</h5>
+                    <h5>SELECT PLAN</h5>
+                </div>
+            </div>
+            <div class="side-content">
+                @if(sideMenu == 3){
+                <div class="side-acitive-number">
+                    <h5>3</h5>
+                </div>
+                }@else{
+                <div class="side-number">
+                    <h5>3</h5>
+                </div>
+                }
+                <div class="content">
+                    <h5 class="steps">STEP 3</h5>
+                    <h5>ADD-ONS</h5>
+                </div>
+            </div>
+            <div class="side-content">
+                @if(sideMenu == 4){
+                <div class="side-acitive-number">
+                    <h5>4</h5>
+                </div>
+                }@else{
+                <div class="side-number">
+                    <h5>4</h5>
+                </div>
+                }
+                <div class="content">
+                    <h5 class="steps">STEP 4</h5>
+                    <h5>SUMMARY</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- forms1 -->
+    <div class="forms1">
+        <div class="container-forms">
+            @switch (sideMenu) {
+            @case (1) {
+            <div class="forms-header">
+                <h1>Personal info</h1>
+                <p>Please provide your name, email address, and phone number</p>
+            </div>
+            <div class="forms-input">
+                <div class="input-field">
+                    <label for="">Name</label>
+                    <input type="text">
+                </div>
+                <div class="input-field">
+                    <label for="">Email Address</label>
+                    <input type="email">
+                </div>
+                <div class="input-field">
+                    <label for="">Phone Number</label>
+                    <input type="number" name="" id="">
+                </div>
+                <div class="input-btn">
+                    <button class="back" [routerLink]="['/login']">Go Back</button>
+                    <button class="next" (click)="next(2)">Next Step</button>
+                </div>
+            </div>
+            }
+            @case (2) {
+            <div class="forms-header">
+                <h1>Select your plan</h1>
+                <p>You have the option of monthly or yearly billing</p>
+            </div>
+            <div class="cards">
+                <div class="card1">
+                    <img src="/register_img/icon-arcade.svg" alt="">
+                    <h6>Arcade</h6>
+                    <p>$9/mo</p>
+                </div>
+                <div class="card1">
+                    <img src="/register_img/icon-advanced.svg" alt="">
+                    <h6>Advanced</h6>
+                    <p>$12/mo</p>
+                </div>
+                <div class="card1">
+                    <img src="/register_img/icon-pro.svg" alt="">
+                    <h6>Pro</h6>
+                    <p>$15/mo</p>
+                </div>
+            </div>
+            <div class="toggle">
+                <p [ngClass]="{active: !checked}">Monthly</p>
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" (change)="checked = !checked">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <p [ngClass]="{active: checked}">Yearly</p>
+            </div>
+            <div class="input-btn">
+                <button class="back" (click)="back(1)">Go Back</button>
+                <button class="next" (click)="next(3)">Next Step</button>
+            </div>
+            }
+            @case (3) {
+            <div class="forms-header">
+                <h1>Pick add-ons</h1>
+                <p>Add-ons help enhance your gaming experience.</p>
+            </div>
+            <div class="checkData" *ngFor="let data of plan">
+                <div class="checkData1" [ngClass]="{'checked-box': data.checked}">
+                    <div class="check-container">
+                        <input type="checkbox" name="" id="" [(ngModel)]="data.checked">
+                    </div>
+                    <div class="content">
+                        <h5>{{data.service}}</h5>
+                        <p>{{data.content}}</p>
+                    </div>
+                    <div class="plan">
+                        <p>{{data.plan}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="input-btn">
+                <button class="back" (click)="back(2)">Go Back</button>
+                <button class="next" (click)="next(4)">Next Step</button>
+            </div>
+            }
+            @case (4) {
+            <div class="forms-header">
+                <h1>Finishing up</h1>
+                <p>Double-check everything looks OK before confirming.</p>
+            </div>
+            <div class="final-plan">
+                <div class="final-card">
+                    <div class="final-card1">
+                        <div class="final-card1-div">
+                            <h1>Arcade (Monthly)</h1>
+                            <a href="">Change</a>
+                        </div>
+                        <div class="final-card1-plan">
+                            <h1>$9/mo</h1>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="final-card2">
+                        <div class="final-card2-div">
+                            <h2>Online service</h2>
+                            <h2>+$1/mo</h2>
+                        </div>
+                    </div>
+                    <div class="final-card2">
+                        <div class="final-card2-div">
+                            <h2>Larger storage</h2>
+                            <h2>+$2/mo</h2>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="final-plan-div">
+                <h2>Total (per month)</h2>
+                <h1>+$12/mo</h1>
+            </div>
+            <div class="input-btn">
+                <button class="back" (click)="back(3)">Go Back</button>
+                <button class="next" (click)="next(5)">Confirm</button>
+            </div>
+            }
+            @case (5){
+                <div class="confirming">
+                    <div style="display: flex;justify-content: center;margin: 20px;">
+                        <div class="cricle">
+                            <div class="inner-cricle">
+                                <span>&#252;</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thankyou" style="text-align: center;">
+                        <h1>Thank you!</h1>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="color: #737575;">Thanks for confirming your subscription! We hope you have <br> fun using our platform. If you ever neeed support, please feel <br> free to email use at supportloremgaming.com.</p>
+                    </div>
+                </div>
+            }
+            }
+        </div>
+    </div>
+
+</div>
