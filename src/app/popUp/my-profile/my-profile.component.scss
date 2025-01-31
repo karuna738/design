@@ -1,0 +1,16 @@
+.container{
+    text-align: center;
+    padding: 20px;
+    .media{
+        button{
+            width: 60%;
+            padding: 6px;
+            margin-bottom: 10px;
+            border: none;
+        }
+        button:hover{
+            border: 2px solid black;
+            border-radius: 4px;
+        }
+    }
+}

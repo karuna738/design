@@ -12,7 +12,7 @@
           </li>
           <li class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              𝓗𝓽𝓶𝓵&𝓒𝓼𝓼
+              𝓒𝓪𝓻𝓭𝓼
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" routerLink="html-css/task-1" routerLinkActive="active-item">𝓣𝓪𝓼𝓴 1</a>
@@ -30,8 +30,16 @@
           </li>
           
         </ul>
-        <form class="d-flex"> 
-          <button class="btn btn-primary" aria-label="Log out" type="button" (click)="onLogOff()">𝓛𝓸𝓰𝓞𝓾𝓽</button>
+        <form class="d-flex">
+          <!-- <button class="btn btn-primary" aria-label="Log out" type="button" (click)="onLogOff()">𝓛𝓸𝓰𝓞𝓾𝓽</button> -->
+           <div class="profile-image">
+            <img class="dropimg" src="profile_img/upload-user.png" alt="Avatar" class="avatar">
+            <div class="dropdown-content">
+              <a (click)="onMyProfile()">𝓜𝔂 𝓟𝓻𝓸𝓯𝓲𝓵𝓮</a>
+              <a (click)="onChangePassword()">𝓒𝓱𝓪𝓷𝓰𝓮 𝓹𝓪𝓼𝓼𝔀𝓸𝓻𝓭</a>
+              <a (click)="onLogOff()">𝓛𝓸𝓰𝓞𝓾𝓽</a>
+            </div>
+           </div>
         </form>
       </div>
     </div>

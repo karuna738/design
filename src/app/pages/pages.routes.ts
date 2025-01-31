@@ -22,7 +22,7 @@ export const routes_pages: Routes =[
         
           {
             path: 'html-css',
-            loadChildren:() => import('./html-css/html-css.routes').then(m  => m.routes_hc),
+            loadChildren:() => import('./cards/cards.routes').then(m  => m.routes_hc),
             canActivate: [AuthGuard]
           },
           {
