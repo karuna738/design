@@ -6,14 +6,14 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AuthService {
   constructor(private toastr: ToastrService){
-
   }
+
   private users = [
     { username: 'admin', password: '123' }
   ];
 
-  login(username: string, password: string): boolean {
-    const user = this.users.find(u => u.username === username && u.password === password);
+  login(data:any): boolean {
+    const user = this.users.find(u => u.username === data.username && u.password === data.password);
     if (user) {
       sessionStorage.setItem('token', 'logged-in');
       this.toastr.success('Successfully!', 'Login');
@@ -29,7 +29,6 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    // this.toastr.error('Error!', 'Authentication');
     return !!sessionStorage.getItem('token');
   }
 }
