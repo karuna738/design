@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         username: this.myForm.value.username,
         password: this.myForm.value.password,
       };
-      this.authService.login(params.username, params.password);
+      this.authService.login(params);
       this.router.navigate(['/dashboard']);
     }
   }
