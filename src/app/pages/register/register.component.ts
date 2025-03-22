@@ -1,13 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed, effect, OnInit, signal } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { addOnsMonth, addOnsYear, menuData, planMonth, planYear } from './register-model';
+
+import { sheredModule } from '../../common/sheredModule';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule, ReactiveFormsModule],
+  imports: [...sheredModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
@@ -21,8 +23,10 @@ selectedAddOns :any = [];
 planArray:any[] = [];
 filteredArray: any = {};
 totalAmount: any;
+loader :boolean = false;
+submited :boolean = false;
 
-constructor(public fb : FormBuilder) { 
+constructor(public fb : FormBuilder, public route: Router) { 
   effect(() => {
     this.currentPlans();
     this.selectedAddOns = [];
@@ -37,7 +41,7 @@ constructor(public fb : FormBuilder) {
     this.regForm = this.fb.group({
       personalInfo: this.fb.group({
         name: ['', Validators.required],
-        email: ['', Validators.required],
+        email: ['',[ Validators.required,Validators.email]],
         phone: ['', Validators.required]
       }),
       plan: this.fb.group({
@@ -59,10 +63,16 @@ constructor(public fb : FormBuilder) {
 
   next(num: number, tab: string) {
     this.finaly();
+    this.submited = true;
     if (this.regForm.get(tab)?.valid || (tab === 'addOns' && this.selectedAddOns.length > 0)) {
       this.sideMenu = num;
+      this.submited = false;
     }else if(num == 5){
       this.sideMenu = num;
+      setTimeout(() => {
+        this.loader = true;
+        setTimeout(() => this.route.navigate(['/login']), 1000);
+      }, 1000);
     }
   }
   

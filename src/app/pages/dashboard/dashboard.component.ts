@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { sheredModule } from '../../common/sheredModule';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterModule],
+  imports: [...sheredModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })

@@ -34,16 +34,16 @@
             <div class="forms-input" formGroupName="personalInfo">
                 <div class="input-field">
                     <label for="">Name</label>
-                    <input type="text" formControlName="name">
+                    <input type="text" formControlName="name" placeholder="Enter name" [ngClass]="{'validate' :regForm.controls['personalInfo'].value['name'] === '' && submited}">
                 </div>
                 <div class="input-field">
                     <label for="">Email Address</label>
-                    <input type="email" formControlName="email">
+                    <input type="email" formControlName="email" placeholder="Enter email... (@gmail.com)" [ngClass]="{'validate' :regForm.controls['personalInfo'].value['email'] === '' && submited}">
                 </div>
                 <div class="input-field">
                     <label for="">Phone Number</label>
-                    <input type="number" name="" id="" formControlName="phone">
-                </div>
+                    <input type="text" appOnlyNumbers formControlName="phone" placeholder="Enter phone number" [ngClass]="{'validate' : regForm.controls['personalInfo'].value['phone'] === '' && submited}">
+                </div>                  
                 <div class="input-btn">
                     <button class="back" [routerLink]="['/login']">Go Back</button>
                     <button class="next" (click)="next(2, 'personalInfo')">Next Step</button>
@@ -90,7 +90,8 @@
                 <h1>Pick add-ons</h1>
                 <p>Add-ons help enhance your gaming experience.</p>
             </div>
-                <div class="checkData" *ngFor="let data of addOnsArray; let i = index">
+            <ng-container *ngFor="let data of addOnsArray; let i = index">
+                <div class="checkData" [ngClass]="{'validate': selectedAddOns.length == 0 && submited }">
                     <div class="checkData1" [ngClass]="{'checked-box': data.checked}" (click)="SelectData(data)">
                         <div class="check-container">
                             <input type="checkbox" [checked]="data.checked" />
@@ -104,6 +105,8 @@
                         </div>
                     </div>
                 </div>
+            </ng-container>
+           
                 
             <div class="input-btn">
                 <button class="back" (click)="back(2)">Go Back</button>
@@ -156,6 +159,7 @@
                         </div>
                     </div>
                 </div>
+              
                 <div class="thankyou" style="text-align: center;">
                     <h1>Thank you!</h1>
                 </div>
@@ -165,6 +169,11 @@
                         supportloremgaming.com.</p>
                 </div>
             </div>
+            @if(loader){
+                <div class="reg-loader">
+                    <app-loader></app-loader>
+                </div>
+            }
             }
             }
         </div>
