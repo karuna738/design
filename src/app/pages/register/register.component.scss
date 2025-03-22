@@ -109,6 +109,7 @@
                         height: 40px;
                         border: 1px solid rgb(158, 162, 162);
                         border-radius: 8px;
+                        padding: 10px;
                     }
 
                     input:focus {
@@ -157,7 +158,7 @@
             grid-template-columns: repeat(3, 100px);
             gap: 8px;
             width: 100%;
-         
+
 
             .card1 {
                 border: 1px solid #c2c4c8;
@@ -171,20 +172,23 @@
                     width: 35%;
                 }
 
-                h6{
+                h6 {
                     margin: 0;
                     color: #093271;
                 }
+
                 p {
                     margin: 0;
                     color: #c2c4c8;
                 }
-                .cls-M{
+
+                .cls-M {
                     margin: 0;
                     color: #093271;
                 }
             }
-            .card1:hover{
+
+            .card1:hover {
                 border: 1px solid rgb(34, 124, 213);
                 background: #f3f5f8;
             }
@@ -192,7 +196,7 @@
             .card1.selected {
                 border: 1px solid rgb(34, 124, 213);
                 background: #f3f5f8;
-              }
+            }
         }
 
         .toggle {
@@ -203,28 +207,32 @@
             margin: 20px 0px;
             padding: 10px;
             gap: 25px;
-            p{
+
+            p {
                 margin: 0;
             }
-            .active{
-                color:  rgb(5, 5, 88);
+
+            .active {
+                color: rgb(5, 5, 88);
                 font-weight: 700;
             }
         }
-        
+
         .switch {
             position: relative;
             display: inline-block;
-            width: 34px; /* Smaller width */
-            height: 18px; /* Smaller height */
+            width: 34px;
+            /* Smaller width */
+            height: 18px;
+            /* Smaller height */
         }
-        
+
         .switch input {
             opacity: 0;
             width: 0;
             height: 0;
         }
-        
+
         .slider {
             position: absolute;
             cursor: pointer;
@@ -234,31 +242,40 @@
             bottom: 0;
             background-color: rgb(5, 5, 88);
             transition: .4s;
-            border-radius: 34px; /* Rounded corners */
+            border-radius: 34px;
+            /* Rounded corners */
         }
-        
+
         .slider:before {
             position: absolute;
             content: "";
-            height: 14px; /* Smaller height for the knob */
-            width: 14px; /* Smaller width for the knob */
-            left: 2px; /* Adjusted for centering */
-            bottom: 2px; /* Adjusted for centering */
+            height: 14px;
+            /* Smaller height for the knob */
+            width: 14px;
+            /* Smaller width for the knob */
+            left: 2px;
+            /* Adjusted for centering */
+            bottom: 2px;
+            /* Adjusted for centering */
             background-color: white;
             transition: 0.4s;
-            border-radius: 50%; /* Circular knob */
+            border-radius: 50%;
+            /* Circular knob */
         }
-        
-        input:checked + .slider {
-            background-color: rgb(5, 5, 88); /* Color when checked */
+
+        input:checked+.slider {
+            background-color: rgb(5, 5, 88);
+            /* Color when checked */
         }
-        
-        input:focus + .slider {
-            box-shadow: 0 0 1px rgb(5, 5, 88); /* Focus effect */
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px rgb(5, 5, 88);
+            /* Focus effect */
         }
-        
-        input:checked + .slider:before {
-            transform: translateX(16px); /* Move knob to the right */
+
+        input:checked+.slider:before {
+            transform: translateX(16px);
+            /* Move knob to the right */
         }
 
         .input-btn {
@@ -294,35 +311,40 @@
             }
         }
 
-        .checkData{
+        .checkData {
             border: 1px solid rgb(5, 5, 88);
             border-radius: 8px;
             margin-bottom: 13px;
             cursor: pointer;
-            .checkData1{
+
+            .checkData1 {
                 display: grid;
                 padding: 8px;
                 grid-template-columns: 0.2fr 1fr 0.5fr;
-            
-                .check-container{
+
+                .check-container {
                     display: flex;
                     align-items: center;
                 }
-                .content{
 
-                    h5{
+                .content {
+
+                    h5 {
                         margin: 0;
                         color: rgb(5, 5, 88)
                     }
-                    p{
+
+                    p {
                         margin: 0;
                     }
                 }
-                .plan{
+
+                .plan {
                     display: flex;
                     align-items: center;
                     justify-content: end;
-                    p{
+
+                    p {
                         margin: 0;
                         display: flex;
                         color: blue;
@@ -330,71 +352,88 @@
                 }
             }
 
-            .checked-box{
+            .checked-box {
                 background-color: #ebf7ff;
-                border-radius: 8px;            
+                border-radius: 8px;
             }
         }
 
-        .final-plan{
+        .final-plan {
             width: 100%;
             border-radius: 10px;
             padding: 8px;
             background-color: #ebf7ff;
-            .final-card{
-                .final-card1{
+
+            .final-card {
+                .final-card1 {
                     display: flex;
                     justify-content: space-between;
                     padding: 8px;
                     align-items: center;
-                    .final-card1-div{
-                        h1{
+
+                    .final-card1-div {
+                        h1 {
                             font-size: large;
                             margin: 0px;
                             font-weight: bold;
                         }
-                        a{
+
+                        a {
                             font-size: small;
                         }
+
+                        .changePlan {
+                            color: #093271;
+                            cursor: pointer;
+                        }
                     }
-                    .final-card1-plan{
-                        h1{
+
+                    .final-card1-plan {
+                        h1 {
                             font-size: large;
                             font-weight: bold;
                         }
                     }
                 }
-                .final-card2{
-                    .final-card2-div{
+
+                .final-card2 {
+                    .final-card2-div {
                         display: flex;
                         justify-content: space-between;
                         padding: 8px;
-                        h2{
+
+                        h2 {
                             font-size: large;
                             margin: 0px;
                         }
                     }
                 }
-         
+
             }
         }
-        .final-plan-div{
+
+        .final-plan-div {
             display: flex;
             justify-content: space-between;
             padding: 17px;
-            h2{
+
+            h2 {
                 font-size: large;
                 margin: 0px;
             }
-            h1{
+
+            h1 {
                 font-size: large;
                 margin: 0px;
                 font-weight: bold;
             }
         }
-        .confirming{
+
+        .confirming {
             align-items: center;
-            .cricle{
+            position: relative;
+
+            .cricle {
                 border-radius: 50%;
                 width: 80px;
                 height: 80px;
@@ -402,7 +441,8 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                .inner-cricle{
+
+                .inner-cricle {
                     border-radius: 50%;
                     width: 40px;
                     height: 40px;
@@ -410,7 +450,8 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    span{
+
+                    span {
                         font-family: wingdings;
                         font-size: 200%;
                         font-weight: 900;
@@ -419,14 +460,21 @@
                 }
             }
         }
-     
-        
+
+        .reg-loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 940px;
+            transform: translate(-50%, -50%);
+            z-index: 2
+        }
+
     }
 }
 
-
-
-  .changePlan{
-    color: #093271;
-    cursor: pointer;
-  }
+.validate{
+    border:1px solid red !important;
+}

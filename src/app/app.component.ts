@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { sheredModule } from './common/sheredModule';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [...sheredModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

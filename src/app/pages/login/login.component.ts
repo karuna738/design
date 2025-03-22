@@ -1,13 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { sheredModule } from '../../common/sheredModule';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [...sheredModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, public fb: FormBuilder) {}
   ngOnInit() {
     if (this.authService.isAuthenticated()) {
-      this.router.navigate(['/dashboard']); // redirect to dashboard if already authenticated
+      this.router.navigate(['/dashboard']); 
     }
     this.formInit();
   }

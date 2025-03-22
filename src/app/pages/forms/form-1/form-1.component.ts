@@ -1,11 +1,11 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { sheredModule } from '../../../common/sheredModule';
 
 @Component({
   selector: 'app-form-1',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [...sheredModule],
   templateUrl: './form-1.component.html',
   styleUrl: './form-1.component.scss',
 })

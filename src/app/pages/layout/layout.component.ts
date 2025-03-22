@@ -1,15 +1,16 @@
 import { Component, inject } from '@angular/core';
-import { Router, RouterModule, RouterOutlet } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LogOutModalComponent } from '../../popUp/log-out-modal/log-out-modal.component';
 import { MyProfileComponent } from '../../popUp/my-profile/my-profile.component';
 import { ChangePasswordComponent } from '../../popUp/change-password/change-password.component';
+import { sheredModule } from '../../common/sheredModule';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [RouterOutlet, RouterModule],
+  imports: [...sheredModule],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
 })
@@ -61,3 +62,4 @@ export class LayoutComponent {
     });
   }
 }
+
