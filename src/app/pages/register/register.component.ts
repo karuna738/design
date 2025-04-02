@@ -1,9 +1,7 @@
-import { CommonModule } from '@angular/common';
 import { Component, computed, effect, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { addOnsMonth, addOnsYear, menuData, planMonth, planYear } from './register-model';
-
 import { sheredModule } from '../../common/sheredModule';
 
 @Component({
@@ -20,7 +18,7 @@ menuData = menuData;
 addOnsArray = addOnsMonth;
 checked = signal(false);
 selectedAddOns :any = [];
-planArray:any[] = [];
+planArray :any[] = [];
 filteredArray: any = {};
 totalAmount: any;
 loader :boolean = false;
@@ -40,13 +38,13 @@ constructor(public fb : FormBuilder, public route: Router) {
   formInit(){
     this.regForm = this.fb.group({
       personalInfo: this.fb.group({
-        name: ['', Validators.required],
-        email: ['',[ Validators.required,Validators.email]],
-        phone: ['', Validators.required]
+        name: ['', [ Validators.required]],
+        email: ['', [ Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.(com|co|in|org|net|edu|gov|info|[a-z]{2,6})$')]],
+        phone: ['', [Validators.required, Validators.pattern(/^[1-9][0-9]{9}$/)]]
       }),
       plan: this.fb.group({
-        stage: [0, Validators.required],
-        duration: [false, Validators.required],
+        stage: [0, [ Validators.required]],
+        duration: [false, [ Validators.required]],
       })
     })
   }
@@ -60,7 +58,6 @@ constructor(public fb : FormBuilder, public route: Router) {
     });
     this.selectedAddOns = this.addOnsArray.filter(res => res.checked === true);
   }
-
   next(num: number, tab: string) {
     this.finaly();
     this.submited = true;

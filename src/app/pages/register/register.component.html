@@ -33,16 +33,16 @@
             </div>
             <div class="forms-input" formGroupName="personalInfo">
                 <div class="input-field">
-                    <label for="">Name</label>
-                    <input type="text" formControlName="name" placeholder="Enter name" [ngClass]="{'validate' :regForm.controls['personalInfo'].value['name'] === '' && submited}">
+                    <label for="">Name <sup>*</sup></label>
+                    <input type="text" formControlName="name" placeholder="Enter name" [ngClass]="{'validate' :regForm.get('personalInfo')?.get('name')?.errors && submited}">
                 </div>
                 <div class="input-field">
-                    <label for="">Email Address</label>
-                    <input type="email" formControlName="email" placeholder="Enter email... (@gmail.com)" [ngClass]="{'validate' :regForm.controls['personalInfo'].value['email'] === '' && submited}">
+                    <label for="">Email Address <sup>*</sup></label>
+                    <input type="email" formControlName="email" placeholder="Enter email... (@gmail.com)" [ngClass]="{'validate' :regForm.get('personalInfo')?.get('email')?.errors && submited}">
                 </div>
                 <div class="input-field">
-                    <label for="">Phone Number</label>
-                    <input type="text" appOnlyNumbers formControlName="phone" placeholder="Enter phone number" [ngClass]="{'validate' : regForm.controls['personalInfo'].value['phone'] === '' && submited}">
+                    <label for="">Phone Number <sup>*</sup></label>
+                    <input type="text" appOnlyNumbers formControlName="phone" placeholder="Enter phone number" maxlength="10" [ngClass]="{'validate' : regForm.get('personalInfo')?.get('phone')?.errors && submited}">
                 </div>                  
                 <div class="input-btn">
                     <button class="back" [routerLink]="['/login']">Go Back</button>
@@ -106,7 +106,6 @@
                     </div>
                 </div>
             </ng-container>
-           
                 
             <div class="input-btn">
                 <button class="back" (click)="back(2)">Go Back</button>
