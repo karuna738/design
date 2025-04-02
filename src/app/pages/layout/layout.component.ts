@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, HostListener, inject, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -16,6 +16,8 @@ import { sheredModule } from '../../common/sheredModule';
 })
 export class LayoutComponent {
   router = inject(Router);
+  public showHide: boolean = false;
+  @ViewChild('dropdownRef') dropdownRef!: ElementRef;
   constructor(
     private authService: AuthService,
     private modalService: NgbModal
@@ -60,6 +62,15 @@ export class LayoutComponent {
         // No button was clicked
       }
     });
+  }
+  onOpen(){
+    this.showHide = !this.showHide;
+  }
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event) {
+    if (this.showHide && this.dropdownRef && !this.dropdownRef.nativeElement.contains(event.target)) {
+      this.showHide = false;
+    }
   }
 }
 
