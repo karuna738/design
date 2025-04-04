@@ -25,6 +25,7 @@ export class AuthService {
 
   logout(): void {
     sessionStorage.removeItem('token');
+    sessionStorage.removeItem('lang');
     this.toastr.success('Successfully!', 'Logout');
   }
 

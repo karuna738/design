@@ -6,6 +6,7 @@ import { LogOutModalComponent } from '../../popUp/log-out-modal/log-out-modal.co
 import { MyProfileComponent } from '../../popUp/my-profile/my-profile.component';
 import { ChangePasswordComponent } from '../../popUp/change-password/change-password.component';
 import { sheredModule } from '../../common/sheredModule';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-layout',
@@ -17,16 +18,28 @@ import { sheredModule } from '../../common/sheredModule';
 export class LayoutComponent {
   router = inject(Router);
   public showHide: boolean = false;
+  public showFlags: boolean = false;
+  public language : any = 'en';
   @ViewChild('dropdownRef') dropdownRef!: ElementRef;
   constructor(
     private authService: AuthService,
-    private modalService: NgbModal
-  ) {}
+    private modalService: NgbModal,
+    private translate: TranslateService
+  ) {
+    this.language = sessionStorage.getItem('lang') ?? 'en';
+    this.translate.use(this.language);
+  }
+
+  onChangeLag(val:any){
+    this.language = val;
+    this.translate.use(val);
+    sessionStorage.setItem('lang', this.language);
+  }
 
   onLogOff() {
     const modalRef = this.modalService.open(LogOutModalComponent);
     modalRef.componentInstance.data = {
-      confirmation: '𝓓𝓸 𝔂𝓸𝓾 𝔀𝓪𝓷𝓽 𝓽𝓸 𝓵𝓸𝓰 𝓸𝓾𝓽?',
+      confirmation: 'DoWLog',
     };
     modalRef.result.then((result) => {
       if (result === 'Yes') {
@@ -63,14 +76,22 @@ export class LayoutComponent {
       }
     });
   }
-  onOpen(){
-    this.showHide = !this.showHide;
+  toggleDropdown(val:any){
+    if(val == 'showFlags'){
+      this.showHide = false;
+      this.showFlags = true;
+    }else{
+      this.showHide = true;
+      this.showFlags = false;
+    }
   }
   @HostListener('document:click', ['$event'])
   onClickOutside(event: Event) {
-    if (this.showHide && this.dropdownRef && !this.dropdownRef.nativeElement.contains(event.target)) {
+    if ((this.showHide || this.showFlags) && this.dropdownRef && !this.dropdownRef.nativeElement.contains(event.target)) {
       this.showHide = false;
+      this.showFlags = false;
     }
   }
+
 }
 

@@ -3,6 +3,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterLink, RouterModule, RouterOutlet } from "@angular/router";
 import { OnlyNumbersDirective } from "./directives/only-numbers.directive";
 import { LoaderComponent } from "./loader/loader.component";
+import { TranslateModule } from "@ngx-translate/core";
 
 export const sheredModule:any = [
     CommonModule,
@@ -12,5 +13,6 @@ export const sheredModule:any = [
     ReactiveFormsModule, 
     LoaderComponent, 
     OnlyNumbersDirective,
-    RouterModule
+    RouterModule,
+    TranslateModule
 ]

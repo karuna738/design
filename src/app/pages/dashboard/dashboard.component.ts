@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { sheredModule } from '../../common/sheredModule';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,7 @@ import { sheredModule } from '../../common/sheredModule';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
-  constructor(){
+  constructor(private translate: TranslateService){
 
   }
 

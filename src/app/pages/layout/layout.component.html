@@ -2,42 +2,54 @@
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" routerLink="dashboard">👓︎𝓓𝓮𝓼𝓲𝓰𝓷📭︎</a>
+      
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mynavbar">
         <ul class="navbar-nav me-auto">
           <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">
-            <a class="nav-link" [routerLink]="['dashboard']">𝓓𝓪𝓼𝓻𝓫𝓸𝓪𝓻𝓭</a>
+            <a class="nav-link" [routerLink]="['dashboard']">{{"dashboard" | translate}}</a>
           </li>
           <li class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              𝓒𝓪𝓻𝓭𝓼
+              {{'Cards' | translate}}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" routerLink="html-css/task-1" routerLinkActive="active-item">𝓣𝓪𝓼𝓴 1</a>
-              <a class="dropdown-item" routerLink="html-css/task-2" routerLinkActive="active-item">𝓣𝓪𝓼𝓴 2</a>
+              <a class="dropdown-item" routerLink="html-css/task-1" routerLinkActive="active-item">{{"Task" | translate}} 1</a>
+              <a class="dropdown-item" routerLink="html-css/task-2" routerLinkActive="active-item">{{"Task" | translate}} 2</a>
             </div>
           </li>
           <li class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              𝓕𝓸𝓻𝓶𝓼
+              {{'Forms' | translate}}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" routerLink="forms/form-1" routerLinkActive="active-item">𝓕𝓸𝓻𝓶 1</a>
-              <a class="dropdown-item" routerLink="forms/form-2" routerLinkActive="active-item">𝓕𝓸𝓻𝓶 2</a>
+              <a class="dropdown-item" routerLink="forms/form-1" routerLinkActive="active-item">{{"Form" | translate}} 1</a>
+              <a class="dropdown-item" routerLink="forms/form-2" routerLinkActive="active-item">{{"Form" | translate}} 2</a>
             </div>
           </li>
         </ul>
-        <form class="d-flex">
-          <!-- <button class="btn btn-primary" aria-label="Log out" type="button" (click)="onLogOff()">𝓛𝓸𝓰𝓞𝓾𝓽</button> -->
+        <form class="d-flex" style="margin-right: 20px;">
            <div class="profile-image">
-            <img class="dropimg" src="profile_img/upload-user.png" alt="Avatar" class="avatar" (click)="onOpen()">
+            <img class="dropimg"  [src]="language === 'en' ? 'flags/united-kingdom.png' : 'flags/india.png'" alt="Avatar" class="avatar" (click)="toggleDropdown('showFlags')">
+            @if(showFlags){
+              <div class="dropdown-content" #dropdownRef>
+                <a (click)="onChangeLag('en')"><img src="flags/united-kingdom.png" alt="">{{'English' | translate}}</a>
+                <a (click)="onChangeLag('ta')"><img src="flags/india.png" alt="">{{'Tamil' | translate}}</a>
+                
+              </div>
+            }
+           </div>
+        </form>
+        <form class="d-flex">
+           <div class="profile-image">
+            <img class="dropimg" src="profile_img/upload-user.png" alt="Avatar" class="avatar"(click)="toggleDropdown('showHide')">
             @if(showHide){
               <div class="dropdown-content" #dropdownRef>
-                <a (click)="onMyProfile()">𝓜𝔂 𝓟𝓻𝓸𝓯𝓲𝓵𝓮</a>
-                <a (click)="onChangePassword()">𝓒𝓱𝓪𝓷𝓰𝓮 𝓹𝓪𝓼𝓼𝔀𝓸𝓻𝓭</a>
-                <a (click)="onLogOff()">𝓛𝓸𝓰𝓞𝓾𝓽</a>
+                <a (click)="onMyProfile()"><img src="profile_img/profile-user.png" alt=""> {{'My Profile' | translate}}</a>
+                <a (click)="onChangePassword()"><img src="profile_img/password.png" alt=""> {{'Change password' | translate}}</a>
+                <a (click)="onLogOff()"><img src="profile_img/logout.png" alt="">{{'LogOut' | translate}}</a>
               </div>
             }
            </div>
