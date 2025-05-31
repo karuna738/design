@@ -4,11 +4,6 @@ import { Task2Component } from "./task-2/task-2.component";
 
 export const routes_hc: Routes =[
     {
-        path: '',
-        redirectTo: 'task-1',
-        pathMatch: 'full',
-      },
-    {
         path: 'task-1',
         component:Task1Component
     },

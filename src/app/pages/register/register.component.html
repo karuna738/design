@@ -43,7 +43,15 @@
                 <div class="input-field">
                     <label for="">Phone Number <sup>*</sup></label>
                     <input type="text" appOnlyNumbers formControlName="phone" placeholder="Enter phone number" maxlength="10" [ngClass]="{'validate' : regForm.get('personalInfo')?.get('phone')?.errors && submited}">
-                </div>                  
+                </div>          
+                <div class="input-field">
+                    <label for="">Password <sup>*</sup></label>
+                    <input type="text" formControlName="password" placeholder="Enter password" maxlength="10" [ngClass]="{'validate' : regForm.get('personalInfo')?.get('password')?.errors && submited}">
+                </div> 
+                <div class="input-field">
+                    <label for="">Confirm Password <sup>*</sup></label>
+                    <input type="text" formControlName="confirmPassword" placeholder="Enter confirm password" maxlength="10" [ngClass]="{'validate' : regForm.get('personalInfo')?.get('confirmPassword')?.errors && submited}">
+                </div>         
                 <div class="input-btn">
                     <button class="back" [routerLink]="['/login']">Go Back</button>
                     <button class="next" (click)="next(2, 'personalInfo')">Next Step</button>
