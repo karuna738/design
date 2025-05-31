@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, effect, inject, signal } from '@angular/core';
 import { sheredModule } from '../../common/sheredModule';
 import { TranslateService } from '@ngx-translate/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { CoreService } from '../../core/core.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,8 +11,9 @@ import { Observable } from 'rxjs';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
-  private apiUrl = 'http://localhost:3000/users';
-  constructor(private translate: TranslateService){
+
+  constructor(private translate: TranslateService, private coreService: CoreService){
+   coreService.getUsers().subscribe(res => console.log(res));
   }
-  
+
 }

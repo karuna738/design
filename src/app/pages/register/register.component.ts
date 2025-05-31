@@ -40,7 +40,9 @@ constructor(public fb : FormBuilder, public route: Router) {
       personalInfo: this.fb.group({
         name: ['', [ Validators.required]],
         email: ['', [ Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.(com|co|in|org|net|edu|gov|info|[a-z]{2,6})$')]],
-        phone: ['', [Validators.required, Validators.pattern(/^[1-9][0-9]{9}$/)]]
+        phone: ['', [Validators.required, Validators.pattern(/^[1-9][0-9]{9}$/)]],
+        password: ['', [ Validators.required]],
+        confirmPassword: ['', [ Validators.required]],
       }),
       plan: this.fb.group({
         stage: [0, [ Validators.required]],
